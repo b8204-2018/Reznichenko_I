@@ -6,10 +6,11 @@ using namespace std;
 class Shop {
 private:
     string name;
-    int kassa = 0;
-
+    double cash = 0;  //сумма в кассе
+    int buyer = 0;
+    double price = 0.0;
 protected:
-    bool isClosed = false;  //0
+    bool isOpened = true;
 
 public:
     Shop(string n) {
@@ -21,32 +22,39 @@ public:
         return name;
     }
 
-    float the_kassa() {
+    double CashHas() {
         cout << "Наличие денег в кассе: ";
-        return this->kassa;
+        return this->cash;
     }
 
-    bool Open() {
-        return !isClosed;
+    virtual string OpenOrNot() {
+        if (isOpened == true) {
+            return "opened";
+        }
+        else return "closed";
     }
 
-    void MakeOpened() {
-        isClosed = true;
+    virtual void MakeOpened() {
+        isOpened = true;
     }
 
-    void MakeClosed() {
-        isClosed = false;
+    virtual void MakeClosed() {
+        isOpened = false;
     }
 
-    /*float buy (bool buyer, float price){
+    int SetBuyer(int kol) { //кол-во покупателей
+        this->buyer = kol;
+        return this->buyer;
+    }
+
+    double BuyTheProduct (int buyer, double price){
         this->buyer = buyer;
-        if (buyer == 0) {
-            //this->product = 0;
-            this->price = price;
+        if (buyer > 0) {
+            this->price = price*buyer;
             return this->price;
         }
-        else { return 0; }
-    }*/
+        else  return 0;
+    }
 };
 
 class Department : public Shop {
@@ -68,25 +76,36 @@ public:
         cout << "Тип отдела: ";
         return typeOfDepartment;
     }
-
-    void StatusOfDepartment() {
-        if (Open() == true) {cout << "Отдел открыт";}
-        else {cout << "Отдел закрыт";}
-    }
 };
+
+void printStatus(Shop &shop) {
+    cout << "Status - " << shop.OpenOrNot() << endl;
+}
+
+void DoStatusOpen(Shop &shop) {
+    shop.MakeOpened();
+}
+
+void DoStatusClose(Shop &shop) {
+    shop.MakeClosed();
+}
 
 int main() {
     Shop s("The Shop");
-    Department d ("Be free", "Woman clothes");
+    Department d ("Zara", "Woman clothes");
 
     cout << s.ShopName() << endl;
-    cout << s.the_kassa() << endl;
-
     cout << d.DepartmentName() << endl;
     cout << d.typeOfDepartmentName() << endl;
-    d.StatusOfDepartment();
-    d.MakeOpened();
-    cout << endl;
-    d.StatusOfDepartment();
+
+    printStatus(d);
+
+    DoStatusClose(d); //d.MakeClosed();
+    printStatus(d);  //закрыт
+    DoStatusOpen(d);
+    printStatus(d);  //открыт
+
+    cout << d.BuyTheProduct(d.SetBuyer(5), 10);
+
     return 0;
 }
