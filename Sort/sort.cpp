@@ -1,5 +1,3 @@
-#include <string.h>
-#include <iostream>
 #include "sort.h"
 
 void DoubleSort::set(int *arr, int n) {

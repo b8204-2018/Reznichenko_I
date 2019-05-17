@@ -1,10 +1,6 @@
 #ifndef UNTITLED_SORT_H
 #define UNTITLED_SORT_H
 
-#include <string.h>
-
-using namespace std;
-
 class Sort {
 public:
     virtual void sort(int *arr, int n) = 0;
