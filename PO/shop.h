@@ -29,6 +29,7 @@ public:
     Seller* s;
     Customer* c;
     Shop (Seller* s, Customer* c);
+    ~Shop();
     Seller* getClass() const;
     void SetName(string name);
     string GetName();

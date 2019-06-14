@@ -71,6 +71,11 @@ Shop::Shop(Seller *s, Customer *c) {
     c = new Customer();
 }
 
+Shop::~Shop() {
+    delete s;
+    delete c;
+}
+
 Seller* Shop::getClass() const {
     return s;
 }
