@@ -1,16 +1,36 @@
 #include "shop.h"
 
-void Shop::SetName(string name) {this->name = name; }
+void Shop::SetName(string name) {
+    this->name = name;
+}
 
-string Shop::GetName() {return name; }
+string Shop::GetName() {
+    return name;
+}
 
-void Shop::SetCash(int money) {this->money = money;}
+void Customer::PayMoney(int payMoney) {
+    this->payMoney = payMoney;
+}
 
-int Shop::GetCash() {return money; }
+int Customer::GetMoney() {
+    return payMoney;
+}
 
-void Shop::ToClose() {status = false; }
+void Shop::SetCash(int money) {
+    this->money = c->GetMoney() + money;
+}
 
-void Shop::ToOpen() {status = true; }
+int Shop::GetCash() {
+    return money;
+}
+
+void Shop::ToClose() {
+    status = false;
+}
+
+void Shop::ToOpen() {
+    status = true;
+}
 
 string Shop::GetStatus() {
     return status ? "Магазин открыт" : "Магазин закрыт";
@@ -20,20 +40,37 @@ string Department::GetStatus() {
     return status ? "Отдел открыт" : "Отдел закрыт";
 }
 
-void Department::SetType(string type) {this->type = type; }
+void Department::SetType(string type) {
+    this->type = type;
+}
 
-string Department::GetType() {return type; }
+string Department::GetType() {
+    return type;
+}
 
-void Shop::SetPrice(int price) {this->price = price; }
+void Seller::SetPrice(int price) {
+    this->price = price;
+}
 
-int Shop::GetPrice() {return price; }
+int Seller::GetPrice() {
+    return price;
+}
 
 int Shop::CountDiscount(int discount){
-    return (GetPrice() - GetPrice()/discount);
+    return (s->GetPrice() - s->GetPrice()/discount);
 }
 
 int Shop::PriceWithDiscount() {
-    if (GetPrice() >= 1000 && GetPrice() < 5000) {return CountDiscount(10); }
-    else if (GetPrice() >= 5000) {return CountDiscount(15); }
-    else return GetPrice();
+    if (s->GetPrice() >= 1000 && s->GetPrice() < 5000) {return CountDiscount(10); }
+    else if (s->GetPrice() >= 5000) {return CountDiscount(15); }
+    else return s->GetPrice();
+}
+
+Shop::Shop(Seller *s, Customer *c) {
+    s = new Seller();
+    c = new Customer();
+}
+
+Seller* Shop::getClass() const {
+    return s;
 }
