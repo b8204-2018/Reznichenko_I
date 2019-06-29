@@ -35,8 +35,6 @@ public:
 
 class Shop {
     bool status = true;
-protected:
-    int CountDiscount(int discount, int price);
 public:
     void ToOpen();
     bool GetStatus();
@@ -46,7 +44,6 @@ class Department_Clothes : public Shop{
     int money = 0;
 public:
     int Cash(int money);
-    int PriceWithDiscount(int p);
     int GetCash();
 };
 

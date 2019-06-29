@@ -83,19 +83,4 @@ int Seller::GetDiscount() {
     return this->discount;
 }
 
-int Shop::CountDiscount(int discount, int price){
-    return (price - price/discount);
-}
-
-int Department_Clothes::PriceWithDiscount(int p) {
-    if (p >= 1000 && p < 5000) {
-        return CountDiscount(10, p);
-    }
-    else if (p >= 5000) {
-        return CountDiscount(15, p);
-    }
-    else{
-        return p;
-    }
-}
 

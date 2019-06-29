@@ -15,7 +15,7 @@ int main() {
 
     sel.SetPrice(1000);
     byuer[0].SetReady(true);
-    byuer[1].SetReady(false);
+    byuer[1].SetReady(true);
 
     for(int i = 0; i < byuer.size(); i++){
 
@@ -41,6 +41,7 @@ int main() {
         else{
             dep_c.Cash(cash);
         }
+        byuer[i + 1].SwitchReadyToByu();
     }
 
     cout << "Day proceeds: " << dep_c.GetCash();
