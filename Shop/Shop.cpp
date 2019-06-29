@@ -8,8 +8,29 @@ int Customer::GetMoney() {
     return this->payMoney;
 }
 
-void Shop::ToClose() {
-    status = false;
+bool Customer::BeGlad(int cash) {
+    if (cash > 0){
+        return true;
+    }
+    else return false;
+}
+
+int Customer::Pay() {
+    return (this->payMoney - this->payMoney/5);
+}
+
+bool Customer::IsReadyToBuy() {
+    return this->ready;
+}
+
+void Customer::SwitchReadyToByu() {
+    if(this->ready){
+        this->ready = false;
+    }
+}
+
+void Customer::SetReady(bool ready) {
+    this->ready = ready;
 }
 
 void Shop::ToOpen() {
@@ -20,11 +41,11 @@ bool Shop::GetStatus() {
     return status;
 }
 
-void Department::Cash(int money) {
-    this->money += money;
+int Department_Clothes::Cash(int money) {
+    return (this->money += money);
 }
 
-int Department::GetCash() {
+int Department_Clothes::GetCash() {
     return this->money;
 }
 
@@ -36,11 +57,37 @@ int Seller::GetPrice() {
     return this->price;
 }
 
-int Department::CountDiscount(int discount, int price){
+bool Seller::Bargain(Customer &C) {
+    if (Like(C)){
+        true;
+    }
+    else false;
+}
+
+bool Seller::Like(Customer &C) {
+    if (C.IsReadyToBuy()){
+        return true;
+    }
+    else return false;
+}
+
+void Seller::SetDiscountPlus() {
+    this->discount = 5;
+}
+
+void Seller::SetDiscountNegative() {
+    this->discount = 0;
+}
+
+int Seller::GetDiscount() {
+    return this->discount;
+}
+
+int Shop::CountDiscount(int discount, int price){
     return (price - price/discount);
 }
 
-int Department::PriceWithDiscount(int p) {
+int Department_Clothes::PriceWithDiscount(int p) {
     if (p >= 1000 && p < 5000) {
         return CountDiscount(10, p);
     }

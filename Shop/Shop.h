@@ -8,34 +8,44 @@
 using namespace std;
 
 class Customer{
-    int payMoney = 0;
+    int payMoney;
+    bool ready;
 public:
     void PayMoney(int payMoney);
     int GetMoney();
+    bool BeGlad(int cash);
+    int Pay();
+    bool IsReadyToBuy();
+    void SwitchReadyToByu();
+    void SetReady(bool ready);
 };
 
 class Seller{
     int price;
+    int discount;
 public:
     void SetPrice(int price);
     int GetPrice();
+    bool Like(Customer &C);
+    bool Bargain(Customer &C);
+    void SetDiscountPlus();
+    void SetDiscountNegative();
+    int GetDiscount();
 };
 
 class Shop {
     bool status = true;
+protected:
+    int CountDiscount(int discount, int price);
 public:
-    void ToClose();
     void ToOpen();
     bool GetStatus();
 };
 
-class Department : public Shop{
-    int money;
-protected:
-    int CountDiscount(int discount, int price);
+class Department_Clothes : public Shop{
+    int money = 0;
 public:
-    Seller s;
-    void Cash(int money);
+    int Cash(int money);
     int PriceWithDiscount(int p);
     int GetCash();
 };
