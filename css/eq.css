@@ -1,0 +1,11 @@
+body{
+    background-image: url("img/apricot.jpg");
+}
+
+body:before{
+    content: "Equilibre";
+    font-family: "McLaren", cursive;
+    font-size: 60px;
+    font-weight: 800;
+}
+
