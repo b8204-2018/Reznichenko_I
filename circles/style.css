@@ -1,0 +1,14 @@
+html {
+    background: white;
+}
+
+span.circle:before {
+    content: ' \25CB';
+    font-size: 200px;
+}
+
+span.black:before{
+    content: ' \25CF';
+    font-size: 200px;
+}
+
