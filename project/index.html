@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Top menu</title>
+    <script src="https://kit.fontawesome.com/9396c381b9.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=McLaren|Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.6/typed.min.js"></script>
+</head>
+<body>
+<header>
+    <h1></h1>
+    <div class="text">
+        <h1><span class="sp"></span></h1>
+    </div>
+    <nav class = "menu">
+        <ul>
+            <div class = "white_key"></div>
+            <div class = "black_key"></div>
+            <div class = "white_key"></div>
+            <div class = "black_key"></div>
+            <div class = "white_key"></div>
+            <div class = "white_key"></div>
+            <li><a href = "#"><div class = "fa fa-paint-brush"></div> Живопись</a>
+                <ul>
+                    <li><a href = "met.html"> Metamorphose</a></li>
+                    <li><a href = "eq.html"> Equilibre</a></li>
+                    <li><a href = "lig.html"> Lignes</a></li>
+                </ul>
+            </li>
+            <div class = "white_key"></div>
+            <li><a href = "#"><div class = "fa fa-podcast"></div> Музыка</a>
+                <ul>
+                    <li><a href = "#"><div class = "fa fa-star"></div> Современная</a></li>
+                    <li><a href = "#"><div class = "fa fa-university"></div> Классическая</a>
+                        <ul>
+                            <li><a href = "#"> Русская</a></li>
+                            <li><a href = "#"> Зарубежная</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <div class = "white_key"></div>
+            <li><a href = "#"><div class = "fas fa-globe"></div> Путешествия</a>
+                <ul>
+                    <li><a href = "#"></div> Франция</a></li>
+                    <li><a href = "#"></div> Италия</a></li>
+                    <li><a href = "#"></div> Россия</a></li>
+                </ul>
+            </li>
+            <div class = "white_key"></div>
+            <div class = "white_key"></div>
+            <div class = "black_key"></div>
+            <div class = "white_key"></div>
+            <div class = "black_key"></div>
+            <div class = "white_key"></div>
+        </ul>
+    </nav>
+</header>
+<script>
+    let b = document.querySelector('h1');
+    b.textContent = "Blog";
+    setInterval(function(){
+        b.classList.toggle('red-t');
+    }, 1000);
+    jQuery(document).ready(function(){
+        let typed = new Typed(".sp", {
+            strings: ["Интересные вещи об искусстве и путешествиях"],
+            typeSpeed: 80,
+            backSpeed: 40,
+            loop: true,
+        });
+    });
+</script>
+<div id="response"></div>
+<form action="" name="MyForm">
+    <p>
+        <input type="text" required name="MyForm_inp">
+    </p>
+    <p>
+        <button type="submit" name="MyForm_btn">Добавить отзыв</button> <input type="reset" value="Очистить">
+    </p>
+</form>
+<script src="com.js"></script>
+</body>
+</html>

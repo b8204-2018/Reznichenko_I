@@ -1,0 +1,17 @@
+body{
+    background-image: url("img/blue.jpg");
+}
+
+header{
+    font-family: "Liu Jian Mao Cao", cursive;
+    font-size: 25px;
+    margin-top: 10px;
+    color: #4b3b2e;
+    margin-left: 10px;
+}
+
+p{
+    font-family: "Liu Jian Mao Cao", cursive;
+    font-size: 40px;
+    color: #4b3b2e;
+}
